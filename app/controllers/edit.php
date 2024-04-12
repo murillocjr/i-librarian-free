@@ -78,7 +78,7 @@ class EditController extends AppController {
         // exec($this->binary->pdfinfo() . ' -enc UTF-8 -f 1 -l 10000 -box ' . escapeshellarg($this->file), $raw);
 
         // $this->queue->release('binary');
-        $myfile = fopen("/tmp/tmp.txt", "w")
+        $myfile = fopen("/tmp/tmp.txt", "w");
         // $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
         $txt = "John Doe\n";
         fwrite($myfile, $txt);
