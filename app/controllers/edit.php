@@ -69,9 +69,10 @@ class EditController extends AppController {
         $this->validation->id($this->post['id']);
 
         $model = new ItemModel($this->di);
-        $model->update($this->post);
+
+        // $model->update($this->post);
 
         $view = new DefaultView($this->di);
-        return $view->main(['info' => 'item was saved']);
+        return $view->main(['info' => $this->post]);
     }
 }
