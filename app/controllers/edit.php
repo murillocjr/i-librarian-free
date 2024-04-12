@@ -74,7 +74,7 @@ class EditController extends AppController {
 
         ////////////
 
-        $pdf_obj = new Pdf($this->post['id']);
+        $pdf_obj = new Pdf($this->di, "/usr/share/i-librarian/data/pdfs/000/000/000000001.pdf");
         $metadata = $pdf_obj->info();
 
         // $raw = [];
@@ -98,7 +98,7 @@ class EditController extends AppController {
         // $model->update($this->post);
 
         $view = new DefaultView($this->di);
-        return $view->main(['info' => "Hi 6" ]);
+        return $view->main(['info' => "Hi 7" ]);
         // implode("|", $this->post);
     }
 }
