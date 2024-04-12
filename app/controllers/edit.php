@@ -71,6 +71,10 @@ class EditController extends AppController {
         $model = new ItemModel($this->di);
 
         ////////////
+
+        $pdf_obj = new Pdf($this->post['id'])
+        $metadata = $pdf_obj->info()
+
         // $raw = [];
 
         // $this->queue->wait('binary');
@@ -80,7 +84,7 @@ class EditController extends AppController {
         // $this->queue->release('binary');
         // $myfile = fopen("/tmp/tmp.txt", "w");
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        $txt = serialize($this->post);
+        $txt = serialize($metadata);
         fwrite($myfile, $txt);
         // close($myfile);
 
@@ -92,7 +96,7 @@ class EditController extends AppController {
         // $model->update($this->post);
 
         $view = new DefaultView($this->di);
-        return $view->main(['info' => "Hi 3" ]);
+        return $view->main(['info' => "Hi 4" ]);
         // implode("|", $this->post);
     }
 }
