@@ -73,6 +73,6 @@ class EditController extends AppController {
         // $model->update($this->post);
 
         $view = new DefaultView($this->di);
-        return $view->main(['info' => $this->post]);
+        return $view->main(['info' => implode("|", $this->post); ]);
     }
 }
