@@ -4,6 +4,8 @@ namespace LibrarianApp;
 
 use Exception;
 use Librarian\Container\DependencyInjector;
+use Librarian\Media\Pdf;
+
 
 class EditController extends AppController {
 
@@ -96,7 +98,7 @@ class EditController extends AppController {
         // $model->update($this->post);
 
         $view = new DefaultView($this->di);
-        return $view->main(['info' => "Hi 5" ]);
+        return $view->main(['info' => "Hi 6" ]);
         // implode("|", $this->post);
     }
 }
