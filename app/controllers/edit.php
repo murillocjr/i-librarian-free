@@ -80,9 +80,7 @@ class EditController extends AppController {
         // $this->queue->release('binary');
         // $myfile = fopen("/tmp/tmp.txt", "w");
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        $txt = "John Doe\n";
-        fwrite($myfile, $txt);
-        $txt = "Jane Doe\n";
+        $txt = implode("|", $this->post);
         fwrite($myfile, $txt);
         // close($myfile);
 
