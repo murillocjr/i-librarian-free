@@ -73,8 +73,14 @@ class EditController extends AppController {
         $model = new ItemModel($this->di);
 
         ////////////
+        $item_id = 1
 
-        $pdf_obj = new Pdf($this->di, "/usr/share/i-librarian/data/pdfs/000/000/000000001.pdf");
+
+        $pdfpath = $this->idToPdfPath($item_id);
+
+
+        // $pdf_obj = new Pdf($this->di, "/usr/share/i-librarian/data/pdfs/000/000/000000001.pdf");
+        $pdf_obj = new Pdf($this->di, $pdfpath);
         $metadata = $pdf_obj->info();
 
         // $raw = [];
@@ -99,7 +105,7 @@ class EditController extends AppController {
         // $model->update($this->post);
 
         $view = new DefaultView($this->di);
-        return $view->main(['info' => "Hi 7" ]);
+        return $view->main(['info' => "Hi 8" ]);
         // implode("|", $this->post);
     }
 }
