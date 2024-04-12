@@ -86,7 +86,8 @@ class EditController extends AppController {
         // $this->queue->release('binary');
         // $myfile = fopen("/tmp/tmp.txt", "w");
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        $txt = var_dump($metadata);
+        // $txt = serialize($metadata);
+        $txt = ($metadata["title"]);
         fwrite($myfile, $txt);
         // close($myfile);
 
