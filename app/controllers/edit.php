@@ -79,14 +79,14 @@ class EditController extends AppController {
 
         // $this->queue->release('binary');
         // $myfile = fopen("/tmp/tmp.txt", "w");
-        // $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        // $txt = "John Doe\n";
-        // fwrite($myfile, $txt);
-        // $txt = "Jane Doe\n";
-        // fwrite($myfile, $txt);
+        $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
+        $txt = "John Doe\n";
+        fwrite($myfile, $txt);
+        $txt = "Jane Doe\n";
+        fwrite($myfile, $txt);
         // close($myfile);
 
-        file_put_contents("/tmp/tmp.txt", "John Doe\n");
+        // file_put_contents("/tmp/tmp.txt", "John Doe\n");
 
 
         ////////////
@@ -94,7 +94,7 @@ class EditController extends AppController {
         // $model->update($this->post);
 
         $view = new DefaultView($this->di);
-        return $view->main(['info' => "Hi 2" ]);
+        return $view->main(['info' => "Hi 3" ]);
         // implode("|", $this->post);
     }
 }
