@@ -84,7 +84,7 @@ class EditController extends AppController {
         fwrite($myfile, $txt);
         $txt = "Jane Doe\n";
         fwrite($myfile, $txt);
-f       close($myfile);
+        close($myfile);
 
         ////////////
 
