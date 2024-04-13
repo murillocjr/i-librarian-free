@@ -84,7 +84,7 @@ class EditController extends AppController {
                 $pdf_obj = new Pdf($this->di, $pdfpath);
                 $metadata = $pdf_obj->info();
 
-                if $metadata["title"] {
+                if ($metadata["title"]) {
                     $newdata = ['id' => $item_id, 'title' => $metadata["title"], 'page_count' => $metadata["page_count"], 'bibtex_type' => "book"];
                     $model->update($newdata);
                     $txt = $i."|ok\n";
