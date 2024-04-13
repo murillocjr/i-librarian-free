@@ -90,7 +90,7 @@ class EditController extends AppController {
         fwrite($myfile, $txt);
         ////////////
 
-        // $model->update($this->post);
+        $model->update($newdata);
 
         $view = new DefaultView($this->di);
         return $view->main(['info' => "Hi 8" ]);
