@@ -75,32 +75,17 @@ class EditController extends AppController {
         ////////////
         $item_id = 1;
 
-
-        // $auxmodel = new Model
         $pdfpath = $model->idToPdfPath($item_id);
-
-
-        // $pdf_obj = new Pdf($this->di, "/usr/share/i-librarian/data/pdfs/000/000/000000001.pdf");
         $pdf_obj = new Pdf($this->di, $pdfpath);
         $metadata = $pdf_obj->info();
 
-        // $raw = [];
+        $this->post['id'] = $item_id
+        $this->post['title'] = $metadata["title"]
 
-        // $this->queue->wait('binary');
 
-        // exec($this->binary->pdfinfo() . ' -enc UTF-8 -f 1 -l 10000 -box ' . escapeshellarg($this->file), $raw);
-
-        // $this->queue->release('binary');
-        // $myfile = fopen("/tmp/tmp.txt", "w");
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        // $txt = serialize($metadata);
-        $txt = ($metadata["title"]);
+        $txt = serialize($this->post);
         fwrite($myfile, $txt);
-        // close($myfile);
-
-        // file_put_contents("/tmp/tmp.txt", "John Doe\n");
-
-
         ////////////
 
         // $model->update($this->post);
