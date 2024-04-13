@@ -76,7 +76,7 @@ class EditController extends AppController {
         $item_id = 1;
 
 
-        $pdfpath = $this->idToPdfPath($item_id);
+        $pdfpath = $model ->idToPdfPath($item_id);
 
 
         // $pdf_obj = new Pdf($this->di, "/usr/share/i-librarian/data/pdfs/000/000/000000001.pdf");
