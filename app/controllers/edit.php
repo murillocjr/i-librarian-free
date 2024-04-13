@@ -73,7 +73,7 @@ class EditController extends AppController {
         $model = new ItemModel($this->di);
 
         ////////////
-        $item_id = 1
+        $item_id = 1;
 
 
         $pdfpath = $this->idToPdfPath($item_id);
