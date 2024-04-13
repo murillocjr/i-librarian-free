@@ -78,14 +78,21 @@ class EditController extends AppController {
             $item_id = $i;
 
             $pdfpath = $model->idToPdfPath($item_id);
-            $pdf_obj = new Pdf($this->di, $pdfpath);
-            $metadata = $pdf_obj->info();
 
-            $newdata = ['id' => $item_id, 'title' => $metadata["title"], 'page_count' => $metadata["page_count"], 'bibtex_type' => "book"];
 
-            $model->update($newdata);
+            if (file_exists($pdfpath)) {
+                $pdf_obj = new Pdf($this->di, $pdfpath);
+                $metadata = $pdf_obj->info();
 
-            $txt = $i."\n";
+                $newdata = ['id' => $item_id, 'title' => $metadata["title"], 'page_count' => $metadata["page_count"], 'bibtex_type' => "book"];
+
+                $model->update($newdata);
+
+                $txt = $i."|ok\n";
+            } else {
+                $txt = $i."|fail\n";
+            }
+            
             fwrite($myfile, $txt);
         }
         ////////////
