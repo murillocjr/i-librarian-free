@@ -79,8 +79,8 @@ class EditController extends AppController {
         $pdf_obj = new Pdf($this->di, $pdfpath);
         $metadata = $pdf_obj->info();
 
-        $this->post['id'] = $item_id
-        $this->post['title'] = $metadata["title"]
+        $this->post['id'] = $item_id;
+        $this->post['title'] = $metadata["title"];
 
 
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
