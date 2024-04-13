@@ -84,7 +84,7 @@ class EditController extends AppController {
 
 
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        $txt = serialize($this->post);
+        $txt = serialize($metadata);
         fwrite($myfile, $txt);
         ////////////
 
@@ -92,6 +92,5 @@ class EditController extends AppController {
 
         $view = new DefaultView($this->di);
         return $view->main(['info' => "Hi 8" ]);
-        // implode("|", $this->post);
     }
 }
