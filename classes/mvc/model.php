@@ -353,7 +353,7 @@ EOT;
      * @return string
      * @throws Exception
      */
-    protected function idToPdfPath($id): string {
+    public function idToPdfPath($id): string {
 
         return IL_PDF_PATH . DIRECTORY_SEPARATOR . $this->getSubPath($id) . DIRECTORY_SEPARATOR . $this->idToBasename($id) . '.pdf';
     }
