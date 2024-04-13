@@ -79,12 +79,14 @@ class EditController extends AppController {
         $pdf_obj = new Pdf($this->di, $pdfpath);
         $metadata = $pdf_obj->info();
 
-        $this->post['id'] = $item_id;
-        $this->post['title'] = $metadata["title"];
+        // $this->post['id'] = $item_id;
+        // $this->post['title'] = $metadata["title"];
+        $newdata = ['id' => $item_id, 'title' => $metadata["title"], 'page_count' => $metadata["page_count"]];
+
 
 
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        $txt = serialize($metadata);
+        $txt = serialize($newdata);
         fwrite($myfile, $txt);
         ////////////
 
