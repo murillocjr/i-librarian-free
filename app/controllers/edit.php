@@ -73,26 +73,23 @@ class EditController extends AppController {
         $model = new ItemModel($this->di);
 
         ////////////
-        $item_id = 1;
-
-        $pdfpath = $model->idToPdfPath($item_id);
-        $pdf_obj = new Pdf($this->di, $pdfpath);
-        $metadata = $pdf_obj->info();
-
-        // $this->post['id'] = $item_id;
-        // $this->post['title'] = $metadata["title"];
-        $newdata = ['id' => $item_id, 'title' => $metadata["title"], 'page_count' => $metadata["page_count"]];
-
-
-
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        $txt = serialize($newdata);
-        fwrite($myfile, $txt);
+        for($i = 1; $i < 100; ++$i) {
+            $item_id = $i;
+
+            $pdfpath = $model->idToPdfPath($item_id);
+            $pdf_obj = new Pdf($this->di, $pdfpath);
+            $metadata = $pdf_obj->info();
+
+            $newdata = ['id' => $item_id, 'title' => $metadata["title"], 'page_count' => $metadata["page_count"]];
+
+            $model->update($newdata);
+
+            $txt = $i."\n";
+            fwrite($myfile, $txt);
+        }
         ////////////
-
-        $model->update($newdata);
-
         $view = new DefaultView($this->di);
-        return $view->main(['info' => "Hi 8" ]);
+        return $view->main(['info' => "Hi 9" ]);
     }
 }
