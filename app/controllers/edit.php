@@ -74,7 +74,7 @@ class EditController extends AppController {
 
         ////////////
         $myfile = fopen("/tmp/tmp.txt", "w") or die("Unable to open file!");
-        for($i = 1; $i < 100; ++$i) {
+        for($i = 100; $i < 2000; ++$i) {
             $item_id = $i;
 
             $pdfpath = $model->idToPdfPath($item_id);
